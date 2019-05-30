@@ -1,0 +1,80 @@
+/* winners never quit and quitters never win.
+      #swap                                 */
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+typedef long double ld;
+#define mod 1000000007
+#define inf 1000000000000000000
+#define rk 256
+#define pb push_back
+#define mp make_pair
+#define vc vector
+#define fs first
+#define sec second
+#define pq priority_queue
+#define lb lower_bound
+#define ub upper_bound
+#define pll pair<ll,ll> 
+#define pls pair<ll,string>
+#define psl pair<string,ll>
+#define plc pair<ll,char>
+#define pcl pair<char,ll>
+#define pss pair<string,string>
+#define all(v) v.begin(),v.end()
+#define tol(s) transform(s.begin(),s.end(),s.begin(),::tolower);
+#define tou(s) transform(s.begin(),s.end(),s.begin(),::toupper);
+#define T ll t=0;cin>>t;for(ll test=0;test<t;test++)
+ 
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+	//isprime();
+	//coeff();
+	/*freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);*/
+    ll n,m;
+    cin>>n>>m;
+    ll x[n][m];
+    for(ll a=0;a<n;a++)
+        for(ll b=0;b<m;b++)
+            cin>>x[a][b];
+    ll y[n][m];
+    for(ll a=0;a<n;a++)
+        for(ll b=0;b<m;b++)
+            cin>>y[a][b];
+    bool flag=false;
+    for(ll j=0;j<n;j++)
+    {
+        vc<ll> v,v1;
+        for(ll k=j,p=0;k>=0 and p<m;k--,p++)
+        {
+            //cout<<k<<" "<<p<<endl;
+            v.pb(x[k][p]);
+            v1.pb(y[k][p]);
+        }
+        sort(all(v));
+        sort(all(v1));
+        if(v!=v1)
+            flag=true;
+    }
+    for(ll j=0;j<m;j++)
+    {
+        vc<ll> v,v1;
+        for(ll k=j,p=n-1;k<m and p>=0;k++,p--)
+        {
+            //cout<<p<<" "<<k<<endl;
+            v.pb(x[p][k]);
+            v1.pb(y[p][k]);
+        }
+        sort(all(v));
+        sort(all(v1));
+        if(v!=v1)
+            flag=true;
+    }
+    if(flag)
+        cout<<"NO\n";
+    else
+        cout<<"YES\n";
+	return 0;
+}
