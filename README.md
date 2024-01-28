@@ -1,2 +1,2 @@
-# My-Codeforces-Submissions
-This repository contains my submissions on Codeforces
+# My-CP-Submissions
+This repository contains my submissions for various competitive programming problems
